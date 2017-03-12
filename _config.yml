@@ -1,0 +1,25 @@
+title: Ben Jackson
+description: "A programming blog written by Ben Jackson"
+url: "http://bjackson2.github.io/"
+author:
+  name: "Ben Jackson"
+  email: "bjackson2@gmail.com"
+  url: "http://bjackson2.github.io/"
+
+baseurl: /
+markdown: kramdown
+permalink: /:title
+paginate: 8
+paginate_path: /page:num/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
