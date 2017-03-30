@@ -6,8 +6,8 @@
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, img {
@@ -26,34 +26,44 @@ $background-color: #FFFFFF;
 $text-color: #333333;
 $text-light-color: rgba(0,0,0,0.6);
 $text-dark-color: #000000;
+$link-color: #3e90d6;
 
 /*- Base settings -*/
 
 html {
-	background-color: $background-color;
-	font-size: 16px;
-	@media (min-width: 940px) {
-		font-size: 18px;
-	}
-	line-height: 1.5;
-	color: $text-color;
+  background-color: $background-color;
+  font-size: 16px;
+  @media (min-width: 940px) {
+    font-size: 18px;
+  }
+  line-height: 1.5;
+  color: $text-color;
 }
 
 body {
- max-width: 1000px;
- margin: 0 auto;
- padding: 0 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 /*- Link -*/
 a {
-	color: $text-color;
-	text-decoration: none;
-	font-weight: 700;
-	&:hover,
-	&:focus {
-		color: lighten($text-color, 15%);
-	}
+  color: $link-color;
+  text-decoration: none;
+  font-weight: 700;
+  &:hover,
+  &:focus {
+    color: lighten($link-color, 15%);
+  }
+
+  &.dark {
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      color: lighten($text-color, 15%);
+    }
+  }
 }
 
 /* Common classes */
