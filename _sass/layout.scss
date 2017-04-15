@@ -173,9 +173,8 @@
 .post+.post:before {
     display: block;
     content: '';
-    width: 5rem;
     height: 1px;
-    margin: 23px auto;
+    margin: 42px auto 24px auto;
     background-color: lighten($text-color, 70%);
   }
 
