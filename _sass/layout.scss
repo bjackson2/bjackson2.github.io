@@ -197,11 +197,27 @@
 img {
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 24px;
+  display: block;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
       -ms-border-radius: 4px;
           border-radius: 4px;
+}
+
+div.image-wrapper {
+  margin: 38px auto;
+}
+
+figure {
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+
+.caption {
+  padding-top: 8px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
 }
 
 img[title="Monochrome"] {
