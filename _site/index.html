@@ -93,6 +93,15 @@
   
 
   <li class="post">
+    <h2><a href="https://engineering.ezcater.com/the-case-against-react-snapshot-testing" class="dark">The case against React snapshot testing... and what you can do instead!</a></h2>
+    <time datetime="2018-06-27T00:00:00-04:00" class="by-line"> <i>27 Jun 2018</i> </time>
+    <p>
+</p>
+  </li>
+
+  
+
+  <li class="post">
     <h2><a href="/serialization-in-rails" class="dark">Serialization in Rails</a></h2>
     <time datetime="2017-05-15T00:00:00-04:00" class="by-line"> <i>15 May 2017</i> </time>
     <p><p>So the time has finally come. You knew it would happen some day, but you’d be prepared. Your app would be <strong>organized</strong> and <strong>fast</strong> and <strong>bulletproof</strong>, ready for anything! Then out of nowhere, right in the middle of all your best laid plans, the front-end team shows up on your lawn with a keg of High Life and some turntables and demands <strong>JAVASCRIPT NOW</strong>. You tell them ‘Be cool, young bloods. We can do JSON.’ And that’s how it begins.</p>
@@ -246,7 +255,7 @@ AMS: 178.94 ms</code></pre></figure>
 
 <p>Say we’re building a serializer for a <code class="highlighter-rouge">Business</code> object, and we want to include some address data. There’s already an <code class="highlighter-rouge">AddressSerializer</code> that we’ve been using for this, but in the new <code class="highlighter-rouge">Business</code> object, we want to flatten the address object and merge it with the business object. In order to make this work, we need to tap into a method in <code class="highlighter-rouge">ActiveModel::Serialization</code> that gets called by AMS, <code class="highlighter-rouge">def serializable_hash</code>.</p>
 
-<p><code class="highlighter-rouge">serializable_hash</code> is the method that returns the serialized Ruby hash for of an object’s attributes. In our <code class="highlighter-rouge">Business</code> serializer, we can override that method call, use <code class="highlighter-rouge">super</code> to access the original hash, and then merge in our additional address data.</p>
+<p><code class="highlighter-rouge">serializable_hash</code> is the method that returns the serialized Ruby hash of an object’s attributes. In our <code class="highlighter-rouge">Business</code> serializer, we can override that method call, use <code class="highlighter-rouge">super</code> to access the original hash, and then merge in our additional address data.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">serializable_hash</span>
   <span class="k">super</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span>
@@ -254,9 +263,9 @@ AMS: 178.94 ms</code></pre></figure>
   <span class="p">)</span>
 <span class="k">end</span></code></pre></figure>
 
-<p>One thing to look out for - using <code class="highlighter-rouge">merge</code> will clobber existing keys with the same name as those being merged in. You may want to use <code class="highlighter-rouge">reverse_merge</code> here instead, depending on your use case. This ‘hack’ isn’t the prettiest thing ever, but I’ve ended up needing it a fair amount to get the data structure I want while still keeping things nice and DRY.</p>
+<p>One thing to look out for - using <code class="highlighter-rouge">merge</code> will clobber existing keys with the same name as those being merged in. You may want to use <code class="highlighter-rouge">reverse_merge</code> here instead, depending on your use case. This ‘hack’ isn’t the prettiest thing ever, but I’ve ended up needing it a fair amount to get the required data structure while still keeping things nice and DRY.</p>
 
-<p>There are many methods of serializing data in Rails, and no single one is a silver bullet. But hopefully this has given a bit of insight into how to tackle this feature in a decent sized Rails app. Good luck, and happy serializing!</p>
+<p>There are many methods of serializing data in Rails, and no single one is a silver bullet. But hopefully this has given a bit of insight into how to tackle JSON-making in a decent sized Rails app. Good luck, and happy serializing!</p>
 </p>
   </li>
 
